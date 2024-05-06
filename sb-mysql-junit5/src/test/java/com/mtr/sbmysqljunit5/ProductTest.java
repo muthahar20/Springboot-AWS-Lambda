@@ -19,7 +19,7 @@ public class ProductTest {
 	
 	@Test
 	public void getProductTest() throws Exception {
-		 mvc.perform(MockMvcRequestBuilders.get("/api/products").accept(MediaType.APPLICATION_JSON))
+		 mvc.perform(MockMvcRequestBuilders.get("/api/products/2").accept(MediaType.APPLICATION_JSON))
 			.andExpect(status().is4xxClientError());
 		 
 		 
