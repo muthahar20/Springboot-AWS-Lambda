@@ -46,7 +46,7 @@ class ProductServiceTest {
 	
 	@Test
 	public void testGetProducts() {
-		 List<Product> products = Arrays.asList(new Product(), new Product());
+		 List<Product> products = Arrays.asList(new Product(12, "iPhone", "Delaware", "3G"), new Product(13, "iPhone15", "Delaware", "5G"));
 		  when(productRepository.findAll()).thenReturn(products);
 		  List<Product> result = productService.getAllProducts();
 		  assertEquals(products.size(), result.size());
@@ -56,7 +56,7 @@ class ProductServiceTest {
 	 @Test
 	    public void testCreateProduct() {
 		 
-		  Product product = new Product();
+		  Product product = new Product(13, "iPhone15", "Delaware", "5G");
 		  when(productRepository.save(product)).thenReturn(product);
 		  Product result = productService.crateProduct(product);
 		  assertEquals(product, result);
@@ -73,7 +73,7 @@ class ProductServiceTest {
 	
 	 @Test
 	    public void testUpdateProduct() {
-		 Product product = new Product();
+		 Product product = new Product(13, "iPhone15", "Delaware", "5G");
 		  when(productRepository.save(product)).thenReturn(product);	
 		  Product result = productService.updateProduct(product);
 		  assertEquals(product, result);

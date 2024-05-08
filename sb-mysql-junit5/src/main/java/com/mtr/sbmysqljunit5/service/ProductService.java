@@ -32,5 +32,9 @@ public class ProductService {
 		return productRepository.save(product);
 	}
 	
+	public List<Product> getProductsByLocation(String location) {
+		return productRepository.getProductsByLocation(location);
+				
+	}
 	
 }

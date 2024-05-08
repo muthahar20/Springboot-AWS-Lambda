@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+
 
 import com.mtr.sbmysqljunit5.model.Product;
 import com.mtr.sbmysqljunit5.service.ProductService;
@@ -22,6 +25,7 @@ public class ProductController {
 	ProductService productService;
 	
 	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
 	public Product createProduct(@RequestBody Product product) {
 		return productService.crateProduct(product);
 	}
@@ -41,6 +45,12 @@ public class ProductController {
 	@PutMapping()
 	public Product updateProduct(@RequestBody Product product) {
 		return productService.updateProduct(product);
+	}
+	
+	@GetMapping("location/{location}")
+	public List<Product> getProductsByLocation(@PathVariable String location) {
+		return productService.getProductsByLocation(location);
+				
 	}
 	
 	
